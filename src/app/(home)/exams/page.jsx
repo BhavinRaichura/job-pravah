@@ -1,4 +1,4 @@
-import Heading from "@/components/ui/Heading";
+//import Heading from "@/components/ui/Heading";
 import Link from "next/link";
 import React from "react";
 
@@ -7,7 +7,7 @@ import React from "react";
 const ExamsPage = () => {
   return (
     <div className="p-5 w-full">
-      <Heading heading={"Exams"} />
+      {/*<Heading heading={"Exams"} />*/}
       <div className="my-5 px-10">
         <ol>
           <Link target="_blank" href={"https://upsc.gov.in/"}>
