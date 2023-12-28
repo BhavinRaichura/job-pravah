@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
               {children}
             </main>
             <aside className=' w-1/3 max-lg:w-full '>
-              {/*<Aside/>*/} 
+              <Aside/> 
             </aside>
           </div>
         </div>
