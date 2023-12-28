@@ -35,7 +35,6 @@ const SearchBar = ({ searchedQuery }) => {
       router.push(`/?q=${query}&page=${page}`);
   }, [query]);
 
-// console.log("serach bar: ",q)
   return (
     <form onSubmit={handleSubmit} className=" bg-gray-50 border  rounded-md">
       <div className=" flex items-center">

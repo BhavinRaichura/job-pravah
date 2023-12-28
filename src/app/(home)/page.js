@@ -10,9 +10,6 @@ export default async function Home({searchParams }) {
   //const reqRecent = await fetch(`.../api/article?page=${page}&q=${query}`,{cache:'no-store'})
   const data = await getSeachResult({query, page})
 
-
-// console.log(`query: ${query} + page: ${page} `)
-// console.log(data)
   return (
     <main className="p-5">
       <div className="">
