@@ -6,6 +6,7 @@ export const metadata = {
   title : "Download" 
 }
 
+export const runtime = "edge"
 
 
 

@@ -2,6 +2,8 @@ import Heading from "@/components/ui/Heading";
 import Link from "next/link";
 import React from "react";
 
+export const runtime = "edge"
+
 export const metadata = {
   title: "Exams",
 };
