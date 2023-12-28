@@ -18,9 +18,9 @@ export default async function Home({searchParams }) {
         <div className="">
           {
             data && data?.post?.length > 0 ? (
-              data?.post.map((item, key) => (
+              data?.post?.map((item, key) => (
                 <div key={key} className="py-2 ">
-                  <PosterUILarge key={key} title={item.title} description={item.description} createdAt={item.createdAt} updatedAt={item.updatedAt} image={item.image} tags={item.tags} slug={item.slug} />
+                  <PosterUILarge key={key} title={item?.title} description={item?.description} createdAt={item?.createdAt} updatedAt={item?.updatedAt} image={item?.image} tags={item?.tags} slug={item?.slug} />
                 </div>
               ))
             ) : (
