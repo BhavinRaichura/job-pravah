@@ -4,24 +4,58 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  /*--background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;*/
 }
-
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    /*--background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;*/
   }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+  font-family:"Jost";/*"Josefin Sans";/*"Montserrat ";/*"Roboto Slab ";/*"Lato ";/*"Afacad";/*"Karla";/*"Raleway" /* "roboto" "Playfair Display"*/
+  @apply text-gray-800 
+  /*background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb));*/
+}
+
+.loading-bg-ani{
+  animation: loading-bg infinite ;
+  animation-duration: 2s;
+  transition: 2s;
+  transition-property: all;
+}
+@keyframes loading-bg {
+  0%{
+    @apply bg-gray-50
+  }
+  20%{
+    @apply bg-gray-100
+  }
+  50%{
+    @apply bg-gray-200
+  }
+  80%{
+    @apply bg-gray-100
+  }
+  100%{
+    @apply bg-gray-50
+  }
+
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  @apply max-w-sm
+  /*max-width: 200px; /* adjust this value to your desired maximum width */
 }

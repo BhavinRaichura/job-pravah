@@ -1,0 +1,56 @@
+.article {
+    @apply text-gray-900 
+}
+.article  p{
+    @apply  my-5 text-gray-800 text-justify max-md:text-base font-normal
+    
+}
+.article blockquote{
+    @apply my-5 pl-2;
+}
+
+.article blockquote > p {
+    @apply border-l-8 border-gray-400 text-gray-800 my-5  bg-gray-50 px-5 py-4 
+}
+.article h1{
+    @apply font-semibold text-3xl text-gray-800 my-10 max-sm:text-2xl  py-2
+}
+.article h2{
+    @apply font-semibold text-2xl mt-8 mb-6 max-sm:text-xl py-2  text-gray-800
+}
+.article h3{
+    @apply font-semibold text-xl mt-8 mb-4 text-gray-800 max-sm:text-lg py-2 
+}
+
+.article h4 > a {
+    @apply min-w-max w-52 py-1 px-4 my-5  rounded-full bg-blue-500 hover:bg-blue-400 text-white active:bg-blue-600 text-center text-base cursor-pointer hover:text-white hover:no-underline block font-normal
+}
+
+.article h4{
+    @apply w-full
+}
+
+.article ul{
+    @apply list-disc text-gray-800 leading-loose pl-5
+}
+
+.article ol{
+    @apply list-decimal  text-gray-800 leading-loose pl-5
+}
+
+.article li{
+    @apply px-2  py-1
+}
+.article a {
+    @apply  text-blue-600 my-5 hover:text-blue-600 hover:underline font-medium
+}
+
+.article img{
+    @apply w-full max-w-screen-md rounded-lg shadow-sm object-cover max-h-96 h-fit
+}
+.article em{
+    @apply italic text-amber-500
+}
+.article strong{
+    @apply font-semibold 
+}
