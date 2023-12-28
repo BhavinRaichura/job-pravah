@@ -2,7 +2,6 @@
 import React from 'react'
 import styles from '@/styles/NewBookForm.module.css'
 import { useRouter } from 'next/navigation'
-import { revalidatePath } from 'next/cache'
 
 const BooksForm = ({addBook}) => {
   const router = useRouter()
@@ -12,7 +11,7 @@ const BooksForm = ({addBook}) => {
     console.log(data)
     if(data.status===200){
       alert('Livro adicionado com sucesso!')
-      revalidatePath('/download')
+      
       router.push('/admin')
     } else 
       alert('Something went wrong!')

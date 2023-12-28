@@ -1,5 +1,7 @@
 "use server"
 
+import { revalidatePath } from "next/cache"
+
 const { default: Books } = require("@/models/books")
 const { connectToDB } = require("@/utils/db")
 
@@ -32,6 +34,7 @@ export async function addBook(formdata){
       delete book._id
       delete book.__v
       console.log("new boook: " , book)
+      revalidatePath('/download')
       return {status: 200, message:"book is added", title: book.title}
       
     } catch (error) {
