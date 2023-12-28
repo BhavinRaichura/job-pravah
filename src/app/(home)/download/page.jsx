@@ -2,9 +2,6 @@ import Heading from '@/components/ui/Heading'
 import React from 'react'
 import { getBooks } from './serverAction'
 
-export const metadata = {
-  title : "Download" 
-}
 
 
 
