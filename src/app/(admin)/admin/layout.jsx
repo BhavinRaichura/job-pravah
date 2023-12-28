@@ -10,14 +10,14 @@ export const metadata = {
 const Layout = ({ children }) => {
   return (
     <div>
-      {/*<AuthenticateAdmin>*/}
+      <AuthenticateAdmin>
         
         <div className="w-full flex">
           <DashboardMain>
             {children}
           </DashboardMain>
         </ div>
-      {/*</AuthenticateAdmin>*/}
+      </AuthenticateAdmin>
     </div>
   );
 };

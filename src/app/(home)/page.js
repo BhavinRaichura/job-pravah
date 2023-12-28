@@ -7,7 +7,7 @@ import { getSeachResult } from "./serverAction";
 export default async function Home({searchParams }) {
   const query = searchParams.q || ""
   const page = Number(searchParams.page) || 1
-  //const reqRecent = await fetch(`.../api/article?page=${page}&q=${query}`,{cache:'no-store'})
+  
   const data = await getSeachResult({query, page})
 
   return (

@@ -2,7 +2,9 @@ import Heading from "@/components/ui/Heading";
 import Link from "next/link";
 import React from "react";
 
-
+export const metadata = {
+  title: "Exams",
+};
 
 const ExamsPage = () => {
   return (
