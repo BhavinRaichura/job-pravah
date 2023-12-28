@@ -71,7 +71,7 @@ const Navbar = () => {
             <button onClick={() => setDropdown((e) => !e)}>
               <img
                 src={session?.user?.image}
-                className="w-8 h-8 rounded-full loading-bg-ani "
+                className="w-10 h-10 rounded-full loading-bg-ani "
                 alt=""
                 loading="lazy"
               />
@@ -79,7 +79,7 @@ const Navbar = () => {
             <div>
               {dropdown ? (
                 <div
-                  className={`  w-52 absolute top-16 right-14 border rounded-l-3xl rounded-b-md  z-50 backdrop-blur-3xl hover:shadow-lg drop-shadow-md bg-white`}
+                  className={`  w-52 absolute top-16 right-14 max-md:right-20 border  rounded-s-md rounded-b-md   z-50 backdrop-blur-3xl hover:shadow-lg drop-shadow-md bg-white`}
                 >
                   <h1 className=" border-b py-4 px-4 text-xl font-medium capitalize ">
                     {session?.user?.name}
@@ -140,9 +140,9 @@ const Navbar = () => {
         <button className="md:hidden" onClick={() => setOpen((e) => !e)}>
           {" "}
           {!open ? (
-            <IoMenu className="w-10 h-8 p-1 m-2 border rounded-md text-gray-500 border-gray-400 hover:text-gray-800 hover:border-gray-800" />
+            <IoMenu className="w-10 h-8 p-1 m-2  rounded-md text-gray-500  hover:text-gray-800 " />
           ) : (
-            <IoMdClose className="w-10 h-8 p-1 m-2 border rounded-md text-gray-500 border-gray-400 hover:text-gray-800 hover:border-gray-800" />
+            <IoMdClose className="w-10 h-8 p-1 m-2 rounded-md text-gray-500  hover:text-gray-800 " />
           )}
         </button>
       </div>

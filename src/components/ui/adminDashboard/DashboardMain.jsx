@@ -58,12 +58,12 @@ const DashboardMain = ({ children }) => {
         >
           <div>
             <div
-              className={`px-3 items-center py-2 w-full  mb-8 flex gap-5 h-20 text-lg border-b overflow-hidden capitalize`}
+              className={`px-2 items-center py-2 w-full  mb-8 flex gap-5 h-20 text-lg border-b overflow-hidden capitalize`}
             >
               {" "}
               <img
                 src={session?.user?.image}
-                className="w-8 h-8 rounded-full"
+                className="w-10 h-10 rounded-full"
               />{" "}
               <span className={` ml-2 w-full ${!open ? " hidden " : "  "}`}>
                 {session?.user?.name}{" "}

@@ -50,7 +50,7 @@ const PosterUILarge = ({title, description, updatedAt,image, slug,createdAt}) =>
       </div>
       <div className=" sm:pl-3 max-sm:p-2 w-full pb-2  " title={description}>
         <Link href={`/blog/${createdAt}/${slug}`} className=" ">
-          <h2 className=" py-2 block  text-base font-semibold leading-snug tracking-normal  group-hover:text-gray-950  antialiased line-clamp-4" >
+          <h2 className=" py-2 block  text-lg font-semibold leading-snug tracking-normal  group-hover:text-gray-950  antialiased line-clamp-4" >
             {" "}
             {title}
           </h2>
