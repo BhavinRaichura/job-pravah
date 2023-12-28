@@ -6,9 +6,6 @@ export const metadata = {
   title : "Download" 
 }
 
-export const runtime = "edge"
-
-
 
 const DownloadPage = async () => {
   const books = await getBooks()
