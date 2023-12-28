@@ -10,7 +10,8 @@ export async function getAllArticlesSlug() {
    // console.log(slug);
     return slug;
   } catch (error) {
-   // console.log(error);
+    console.log(error);
+    return new Response(JSON.stringify({ message: error }), { status: 200 });
   }
 }
 
@@ -26,7 +27,8 @@ export async function getArticleMetadata(createdAt, slug) {
     if (!metadata[0]) throw new Error("No article's metadata found");
     return new Response(JSON.stringify(metadata[0]), { status: 200 });
   } catch (error) {
-   // console.log(error);
+    console.log(error);
+    return new Response(JSON.stringify({ message: error }), { status: 200 });
   }
 }
 
@@ -82,5 +84,6 @@ export async function getSuggetion(targetPoster) {
     return suggetions;
   } catch (e) {
     throw new Error(e);
+    
   }
 }
