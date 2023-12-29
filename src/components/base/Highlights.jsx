@@ -4,6 +4,9 @@ import PosterUISmall from '../ui/PosterUISmall'
 import revalidationTags from '@/revalidation/tags'
 import { getSeachResult } from '@/app/(home)/serverAction'
 
+
+export const revalidateTag = revalidationTags.NEW_ARTICLE
+
 const Highlights = async () => {
   
   const recentPost = await getSeachResult({query:"",page:1})

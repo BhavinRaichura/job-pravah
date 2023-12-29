@@ -2,7 +2,8 @@
 
 const { default: Post } = require("@/models/post")
 const { connectToDB } = require("@/utils/db")
-import { revalidatePath } from 'next/cache';
+import revalidationTags from '@/revalidation/tags';
+import { revalidatePath, revalidateTag } from 'next/cache';
 
 export async function createArticle({slug, title, description, tags, content, image}){
     try {
@@ -14,6 +15,8 @@ export async function createArticle({slug, title, description, tags, content, im
 
       revalidatePath('/home')
       revalidatePath('/admin/articles')
+      revalidateTag(revalidationTags.NEW_ARTICLE)
+
 
       return {success: true,  message: `Post Successfully added to database `, data: { post: post.title}}
     } catch (error) {
