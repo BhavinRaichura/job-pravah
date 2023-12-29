@@ -20,7 +20,7 @@ async function getArticleEditableData({ slug, createdAt }) {
       { slug: slug, createdAt: createdAt },
       { title: 1, tags: 1, description: 1, content: 1, image: 1 }
     );
-    //revalidatePath(`${revalidationPaths.ARTICLE}/${slug}`)
+    
     return article;
   } catch (e) {
     throw new Error("anable to find slug or connect to database");

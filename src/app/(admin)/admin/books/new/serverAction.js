@@ -1,5 +1,6 @@
 "use server"
 
+import revalidationPaths from "@/revalidation/paths"
 import { revalidatePath } from "next/cache"
 
 const { default: Books } = require("@/models/books")
@@ -33,9 +34,11 @@ export async function addBook(formdata){
       delete book._id
       delete book.__v
       console.log("new boook: " , book)
-      revalidatePath('/download')
-      revalidatePath('/(admin)/admin/books')
-      revalidatePath('/(admin)/admin/')
+      
+      revalidatePath(revalidationPaths.DOWNLOAD)
+      revalidatePath(revalidationPaths.ADMIN_BOOKS)
+      revalidatePath(revalidationPaths.ADMIN)
+
       return {status: 200, message:"book is added", title: book.title}
       
     } catch (error) {

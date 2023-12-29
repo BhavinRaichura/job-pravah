@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache"
 
 const { default: User } = require("@/models/user")
 const { connectToDB } = require("@/utils/db")
+import revalidationPaths from "@/revalidation/paths"
 
 async function getAllUsers() {
     try {
@@ -25,6 +26,10 @@ async function removeUser(userid){
         if(!userid)
             return {status:404, message:"user not found" }
         const user = await User.findOneAndDelete({_id : userid})
+        
+        revalidatePath(revalidationPaths.ADMIN)
+        revalidatePath(revalidationPaths.ADMIN_USERS)
+
         if(user) return {status:200, message:"success", role:user.role}
         return {status:404, message:"user not found",  }
     } catch (error) {

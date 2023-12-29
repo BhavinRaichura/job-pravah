@@ -1,17 +1,16 @@
 
 import React from 'react'
 import PosterUISmall from '../ui/PosterUISmall'
-import revalidationTags from '@/revalidation/tags'
 import { getSeachResult } from '@/app/(home)/serverAction'
 
 
-export const revalidate = revalidationTags.NEW_ARTICLE
+export const revalidate = 2
 
 const Highlights = async () => {
   
   const recentPost = await getSeachResult({query:"",page:1})
 
-  //console.log(recentPost)
+  // console.log(recentPost)
 
   return (
     <footer className=' bg-zinc-900 h-max w-full py-10 '>

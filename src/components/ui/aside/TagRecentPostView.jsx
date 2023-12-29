@@ -3,6 +3,8 @@ import revalidationTags from "@/revalidation/tags";
 import Link from "next/link";
 import React from "react";
 
+export const revalidate = 2
+
 const TagRecentView = async ({ tag }) => {
 
   const response = await getSearchByTag({tag, page: 1, count:5})
