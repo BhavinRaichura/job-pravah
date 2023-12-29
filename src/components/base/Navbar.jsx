@@ -85,11 +85,11 @@ const Navbar = () => {
                     {session?.user?.name}
                   </h1>
                   <div className="py-2 px-2">
-                    <Link href="#">
+                    {/*<Link href="#">
                       <div className="text-gray-500 text-base hover:text-gray-900 hover:bg-gray-100 p-2 rounded-md" >
                         Profile
                       </div>
-                    </Link>
+                    </Link>*/}
                     {session?.user?.role === "Admin" ? (
                       <Link href="/admin">
                         <div className="text-gray-500 text-base hover:text-gray-900 hover:bg-gray-100 p-2 rounded-md" >
@@ -99,9 +99,7 @@ const Navbar = () => {
                     ) : (
                       ""
                     )}
-                    <div className="text-gray-500 text-base hover:text-gray-900 hover:bg-gray-100 p-2 rounded-md" >
-                      <Link href="#">Profile</Link>
-                    </div>
+                    
                   </div>
                   <div
                     onClick={() => {

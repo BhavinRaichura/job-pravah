@@ -2,6 +2,9 @@ import Heading from '@/components/ui/Heading'
 import React from 'react'
 import { getBooks } from './serverAction'
 
+// revalidate everyday
+export const revalidate = 86400
+
 export const metadata = {
   title : "Download" 
 }

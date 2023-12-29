@@ -9,6 +9,8 @@ import { notFound } from "next/navigation";
 import DateFormateElement from "@/components/ui/DateFormateElement";
 import TagRenderer from "@/components/ui/TagRenderer";
 
+export const revalidate = 3600
+
 export async function generateStaticParams() {
   // Get all article slugs
   const articles = await getAllArticlesSlug();
