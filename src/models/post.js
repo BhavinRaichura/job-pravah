@@ -50,16 +50,13 @@ const postSchema = new Schema({
 })
 
 postSchema.pre("save",{document:true, query:false},function(){
-    console.log("###################\n\nitem added: ")
     this.slug =  slugify(this.title.replace(/[^\w\s]/gi, '').trim())
-    
 })
 
 
 postSchema.post('findOneAndUpdate',true, function () {
-    console.log("/n/n######## updte")
     this.set({ updatedAt: new Date() });
- });
+});
 const Post = models.Post || model("Post", postSchema)
 
 

@@ -1,12 +1,15 @@
 import Editor from '@/components/ui/adminDashboard/Editor'
+
 import revalidationTags from '@/revalidation/tags';
+
 import { revalidatePath, revalidateTag } from 'next/cache';
+import { createArticle } from './serverAction';
 
 export const metadata = {
   title : "New" 
 }
 
-async function createArticle({slug, title, description, tags, content, image}){
+/*async function createArticle({slug, title, description, tags, content, image}){
 
   "use server"
   try{
@@ -31,7 +34,8 @@ async function createArticle({slug, title, description, tags, content, image}){
       console.log(e)
       throw new Error("semething went wrong: ", e)
   }
-}
+}*/
+
 
 const NewPost = async () => {
   

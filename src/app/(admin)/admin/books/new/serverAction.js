@@ -21,7 +21,7 @@ export async function addBook(formdata){
       if(!title || !url) throw new Error("Invalid input")
       
       await connectToDB();
-      const newbook = await new Books({
+      const book = await Books.create({
         title,
         author,
         url,
@@ -30,11 +30,12 @@ export async function addBook(formdata){
         description
       })
 
-      const book = await newbook.save()
       delete book._id
       delete book.__v
       console.log("new boook: " , book)
       revalidatePath('/download')
+      revalidatePath('/(admin)/admin/books')
+      revalidatePath('/(admin)/admin/')
       return {status: 200, message:"book is added", title: book.title}
       
     } catch (error) {

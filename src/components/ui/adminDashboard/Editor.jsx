@@ -6,6 +6,7 @@ import { IoIosRemoveCircle } from "react-icons/io";
 
 
 const Editor = ({ formName, formSubmitHandler, ...props }) => {
+  const router = useRouter();
 
   const [title, setTitle] = useState(props.title || "");
   const [tagsList, setTagsList] = useState(props.tags || []);
@@ -13,9 +14,9 @@ const Editor = ({ formName, formSubmitHandler, ...props }) => {
   const [content, setContent] = useState(props.content || "");
   const [description, setDescription] = useState(props.description || "");
   const [image, setImage] = useState(props.image || "");
+  const [formProcess, setFormProcess] = useState(false)
 
-  const router = useRouter();
-
+  
   const handleTags = (e) => {
     if (tag !== "") {
       setTagsList([...tagsList, ...tag.split(" ")]);
@@ -29,9 +30,11 @@ const Editor = ({ formName, formSubmitHandler, ...props }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+    //console.log("editor post api call")
+    setFormProcess(true)
+
     try {
-      const data = await formSubmitHandler({
+      const response = await formSubmitHandler({
         slug: props.slug,
         title,
         tags: tagsList,
@@ -40,13 +43,20 @@ const Editor = ({ formName, formSubmitHandler, ...props }) => {
         content,
         createdAt: props.createdAt
       });
-      console.log(data);
+
+      if(!response.success){
+        throw new Error("form not submited: ",response.error)
+      }
+      console.log(response);
       alert("Successfully submitted");
+
       router.replace("/admin");
     } catch (error) {
-      console.error(error.message);
+      
       alert("Error: " + error.message);
-      //throw new Error("failed")
+      throw new Error("form not submited: ",error.message)
+    } finally {
+      setFormProcess(false)
     }
   };
 
@@ -166,10 +176,11 @@ const Editor = ({ formName, formSubmitHandler, ...props }) => {
       </div>
       <button
         type="submit"
-        className=" bg-lime-500 hover:bg-lime-600 px-4 py-2 text-white rounded-lg"
+        className={` bg-lime-500 hover:bg-lime-600 px-4 py-2 text-white rounded-lg disabled:bg-gray-400`}
         value="submit"
+        disabled = {formProcess ? true : false}
       >
-        Submit
+        { formProcess ? "Submitting..." : "Submit" }
       </button>
     </form>
   );

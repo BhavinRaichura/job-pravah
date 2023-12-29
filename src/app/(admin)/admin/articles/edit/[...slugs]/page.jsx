@@ -39,7 +39,7 @@ async function updateArticle({
   "use server";
   try {
     await connectToDB();
-    const article = await Post.findOneAndUpdate(
+    const post = await Post.findOneAndUpdate(
       { slug: slug, createdAt: createdAt },
       {
         $set: {
@@ -52,10 +52,13 @@ async function updateArticle({
         },
       }
     );
+    if(!post){
+      return {success:false, error: "post not found", data:{}}
+    }
     revalidatePath(`/blog/${createdAt}/${slug}`)
-    return {flag : article ? true: false, article:article};
+    return {success:true, message:"submited successfully", data:{port: post.title}}
   } catch (e) {
-    throw new Error("anable to find slug or connect to database");
+    return {success:false, error: error.message, data:{}}
   }
 }
 
