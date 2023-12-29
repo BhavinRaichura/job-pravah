@@ -1,6 +1,12 @@
 const revalidationTags = {
     NEW_ARTICLE: "NEW_ARTICLE",
     DELETE_ARTICLE: "DELETE_ARTICLE",
+
+    BOOKS_ACTION: "BOOKS_ACTION",
+    POSTS_ACTION: "POSTS_ACTION",
+    USER_ACTION: "USER_ANCTION",
+    POSTS_UPDATE: "POSTS_UPDATE",
+
 }
 
 export default revalidationTags

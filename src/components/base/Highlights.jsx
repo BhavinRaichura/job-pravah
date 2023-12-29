@@ -5,7 +5,7 @@ import revalidationTags from '@/revalidation/tags'
 import { getSeachResult } from '@/app/(home)/serverAction'
 
 
-export const revalidateTag = revalidationTags.NEW_ARTICLE
+export const revalidate = revalidationTags.NEW_ARTICLE
 
 const Highlights = async () => {
   

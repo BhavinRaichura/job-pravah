@@ -4,6 +4,8 @@ import UsersTableHead from './users/component';
 import PostsTable from './articles/component';
 import DateFormateElement from '@/components/ui/DateFormateElement';
 
+export const revalidate = 2
+
 const AdminPanel = async () => {
   const countUsers = await getCountUsers();
   const countBooks = await getCountBooks()
