@@ -46,8 +46,8 @@ const Aside = () => {
       </h1>
       </div>
       <TagRecentPostView tag={"Job"} />
-      <TagRecentPostView tag={"Govt"} />
-      <TagRecentPostView tag={"IT"} />
+      <TagRecentPostView tag={"GovernmentJob"} />
+      <TagRecentPostView tag={"ITJob"} />
       <TagRecentPostView tag={"AdmitCard"} />
 
       <div className="mt-10 bg-gray-100 p-4 rounded-lg">

@@ -1,4 +1,3 @@
-"use server";
 import MarkdownRenderer from "@/components/ui/MarkdownRenderer";
 import {
   getAllArticlesSlug,
@@ -58,7 +57,7 @@ const Articles = async ({ params }) => {
 
       <div className="py-2 mt-14 flex flex-wrap gap-2 items-center text-lg">
         {
-          tags.map((tag, index) => <TagRenderer tag={tag} key={index}/> )
+          tags?.map((tag, index) => <TagRenderer tag={tag} key={index}/> )
         }
       </div>
       <Suggetions tags={tags} slug={params.slug} />

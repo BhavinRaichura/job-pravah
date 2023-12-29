@@ -21,14 +21,14 @@ const TagRecentView = async ({ tag }) => {
         {data &&
           data?.posts?.map((data, key) => {
             return (
-              <li key={key} className=" p-1 m-1 list-disc ">
+              <li key={key} className=" p-1 m-1 list-none ">
               <Link
                   href={`/blog/${data.createdAt}/${data.slug}`}
                   className=" text-sm  font-semibold text-gray-700 hover:underline hover:text-gray-950 hover:translate-x-2 transition-all line-clamp-2"
                   title={data.title}
                   key={key}
                 >
-                      {data.title}
+                    <span className=" font-bold text-xl">-</span> {data.title}
                     
                 </Link>
                 </li>

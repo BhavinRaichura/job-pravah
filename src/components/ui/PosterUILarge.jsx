@@ -45,7 +45,7 @@ const PosterUILarge = ({title, description, updatedAt,image, slug,createdAt}) =>
           className=" max-sm:w-full sm:h-40 max-sm:h-44 max-sm:px-0.5 w-36   rounded-xl loading-bg-ani "
           src={image || "/job.jpeg"}
           alt=" "
-        
+          loading="lazy"
         />
       </div>
       <div className=" sm:pl-3 max-sm:p-2 w-full pb-2  " title={description}>
