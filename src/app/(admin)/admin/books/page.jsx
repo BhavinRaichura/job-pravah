@@ -1,5 +1,6 @@
 import React from "react";
 import { getAllBooks } from "./serverAction";
+import BookEditHandler from "./component";
 
 const page = async () => {
   const books = await getAllBooks();
@@ -32,6 +33,12 @@ const page = async () => {
                     >
                       Language
                     </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                    >
+                      Edit
+                    </th>
                     
                   </tr>
                 </thead>
@@ -56,6 +63,9 @@ const page = async () => {
                           <span className="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
                             {book.language}
                           </span>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <BookEditHandler bookId={book._id.toString()}/>
                         </td>
                       </tr>
                     );
