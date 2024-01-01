@@ -54,3 +54,28 @@
 .article strong{
     @apply font-semibold 
 }
+
+
+
+.article table {
+    @apply w-full overflow-x-scroll divide-y divide-gray-200 border rounded-md
+}
+.article thead {
+    @apply bg-gray-100
+}
+.article th{
+    @apply px-6 py-3 text-sm font-medium tracking-wider text-left text-gray-800 uppercase
+}
+
+.article tr{
+    @apply hover:bg-gray-50 hover:shadow-md
+}
+.article td {
+    @apply px-6 py-4 text-sm text-gray-700 whitespace-nowrap font-normal
+}
+.article tbody {
+    @apply bg-white divide-y divide-gray-200
+}
+.article td strong {
+    @apply font-extrabold text-gray-950
+}
