@@ -30,11 +30,41 @@ export async function generateMetadata({ params }) {
     throw new Error("404: URL Not Found");
     notFound();
   }
-  const articleMetadata = await response.json();
+  const pageData = await response.json();
   // Returning an object here will make it available in `pageProps`
   return {
-    title: articleMetadata.title,
-    description: articleMetadata.description,
+    title: pageData.title,
+    description: pageData.description,
+    keywords: pageData.description,
+    images: [
+      {
+        url: pageData.image, // Must be an absolute URL
+        width: 600,
+        height: 700,
+      },
+    ],
+    openGraph: {
+      title: `${pageData.title}`,
+      description: pageData.description,
+      images : [
+        {
+          url: pageData.image, // Must be an absolute URL
+          width: 600,
+          height: 700,
+        },
+      ],
+      siteName: 'JobPravah.com',
+      url:  `https://jobpravah.com/blog/${params.slug[0]}/${params.slug[1]}`,
+      type: 'article',
+    },
+    twitter: {
+      card: `${pageData.title}`,
+      site: '@yourtwitterhandle', // Replace with your Twitter handle
+      title: `${pageData.title}`,
+      description: `${pageData.description}`,
+      image: pageData.image, // Use a specific Twitter image or fallback to the general image
+      creator: pageData.description
+    },
   };
 }
 

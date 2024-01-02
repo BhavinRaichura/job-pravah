@@ -21,10 +21,11 @@ export async function getArticleMetadata(createdAt, slug) {
 
     const metadata = await Post.find(
       { slug:slug, createdAt: createdAt  },
-      { title: 1, tags: 1, description: 1 }
+      { title: 1, tags: 1, description: 1, image:1 }
     );
    // console.log("metadata: ", slug);
     if (!metadata[0]) throw new Error("No article's metadata found");
+    metadata.image = metadata.image || ""
     return new Response(JSON.stringify(metadata[0]), { status: 200 });
   } catch (error) {
     console.log(error);
@@ -44,7 +45,7 @@ export async function getArticle(createdAt, slug) {
     if (!article[0]) throw new Error("No article found");
     return new Response(JSON.stringify(article[0]), { status: 200 });
   } catch (error) {
-    return new Response(JSON.stringify({ message: error }), { status: 200 });
+    return new Response(JSON.stringify({ message: error }), { status: 500 });
   }
 }
 

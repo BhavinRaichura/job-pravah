@@ -1,7 +1,7 @@
 import Post from "@/models/post";
 import { connectToDB } from "@/utils/db";
 
-export const getSeachResult = async ({query, page}) => {
+export const getSeachResult = async ({query, page, count}) => {
   
   await connectToDB()
   // Extract search query from request
@@ -9,7 +9,7 @@ export const getSeachResult = async ({query, page}) => {
   // Extract page number from request
   const pageNumber = page
   // Define page size and search text
-  const pageSize =  10;
+  const pageSize =  count || 10;
  
   const searchText = new RegExp(q); // Replace with the user's search query
 
@@ -34,7 +34,7 @@ export const getSeachResult = async ({query, page}) => {
       $limit: pageSize, // Limit the number of documents per page
     },
     {
-      $project: { title: 1, description: 1, updatedAt: 1, slug: 1, createdAt:1 },
+      $project: { title: 1, description: 1, updatedAt: 1, slug: 1, createdAt:1, image:1 },
     },
   ];
 
