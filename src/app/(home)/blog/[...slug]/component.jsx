@@ -38,7 +38,7 @@ const Suggetions = async ({ tags, slug }) => {
                   <p className=" text-gray-600 pt-2 font-medium text-xs">
                     <DateFormateElement date={blog.updatedAt} />
                   </p>
-                  <p className=" py-2 text-sm">{blog.title}</p>
+                  <p className=" py-2 text-base line-clamp-3 h-20">{blog.title}</p>
                 </Link>
               </div>
             </div>

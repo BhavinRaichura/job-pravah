@@ -18,7 +18,7 @@ async function getArticleEditableData({ slug, createdAt }) {
     await connectToDB();
     const article = await Post.findOne(
       { slug: slug, createdAt: createdAt },
-      { title: 1, tags: 1, description: 1, content: 1, image: 1 }
+      { title: 1, tags: 1, description: 1, content: 1, image: 1, lastDate:1, state:1 }
     );
     
     return article;
@@ -34,7 +34,9 @@ async function updateArticle({
   tags,
   content,
   image,
-  createdAt
+  createdAt,
+  lastDate,
+  state
 }) {
   "use server";
   try {
@@ -48,7 +50,9 @@ async function updateArticle({
           description: description,
           content: content,
           image: image,
-          updatedAt: new Date()
+          updatedAt: new Date(),
+          lastDate: lastDate,
+          state:state
         },
       }
     );
@@ -67,7 +71,7 @@ const page = async ({ params }) => {
   
   const res = await getArticleEditableData({ createdAt: params.slugs[0] ,slug: params.slugs[1] });
   
-  const { title, description, tags, content, image } = res;
+  const { title, description, tags, content, image, lastDate, state } = res;
 
   return (
     <div>
@@ -78,6 +82,8 @@ const page = async ({ params }) => {
         tags={tags}
         content={content}
         image={image}
+        lastDate={lastDate}
+        state= {state}
         slug={params.slugs[1]}
         createdAt = {params.slugs[0]}
         formSubmitHandler={updateArticle}

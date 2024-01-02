@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import styles from '@/styles/NewBookForm.module.css'
+import styles from '@/styles/NewForm.module.css'
 import { useRouter } from 'next/navigation'
 
 const BooksForm = ({addBook}) => {
@@ -20,13 +20,13 @@ const BooksForm = ({addBook}) => {
 
   console.log("books")
   return (
-    <form action={handlesubmit}  className={styles.bookform}>
+    <form action={handlesubmit}  className={styles.form}>
       <div className={styles.main}>
-        <div className=' w-full p-2 my-2'>
+        <div className={styles.inputContainer}>
           <label htmlFor="title">Title</label>
-          <textarea placeholder='title' name="title" id="title" cols="30" rows="10" required></textarea>
+          <textarea placeholder='title' name="title" id="title" cols="30" rows="10" className={styles.title} required></textarea>
         </div>
-        <div className=' w-full p-2 my-2'>
+        <div className={styles.inputContainer}>
           <label htmlFor="author">Author</label>
           <input placeholder="author" type="text" name="author" id="author" />
         </div>
@@ -47,19 +47,19 @@ const BooksForm = ({addBook}) => {
             </div>
           </div>
         </div>
-        <div className=' w-full p-2 my-2'>
+        <div className={styles.inputContainer}>
           <label  htmlFor="url">Download Link</label>
           <input  placeholder="url" type="url" name="url" id="url" required />
         </div>
-        <div className=' w-full p-2 my-2'>
+        <div className={styles.inputContainer}>
           <label htmlFor="image">Book Image</label>
           <input placeholder="image url" type="url" name="image" id="image" />
         </div>
-        <div className=' w-full p-2 my-2'>
+        <div className={styles.inputContainer}>
           <label htmlFor="desc">Description</label>
           <textarea name="description" id="desc" cols="30" rows="10" placeholder='description'></textarea>
         </div>
-        <div className=' w-full p-2 my-2'>
+        <div className={styles.inputContainer}>
           <input className={styles.button} type="submit" value="submit" />
         </div>
       </div>

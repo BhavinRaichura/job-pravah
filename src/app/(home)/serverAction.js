@@ -95,3 +95,8 @@ export async function getSearchByTag({tag, page, count}){
   }
 
 }
+
+/*
+export function getSearchByState({state, page}){
+
+}*/
