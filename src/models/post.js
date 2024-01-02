@@ -39,6 +39,10 @@ const postSchema = new Schema({
         type:String,
         required:false
     },
+    lastDate: {
+        type: String,
+        required: false
+    },
     createdAt:{
         type:String,
         default: new Date().toLocaleDateString().replaceAll("/","-")
