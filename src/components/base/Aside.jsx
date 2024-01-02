@@ -1,9 +1,7 @@
-
+"use server"
 import React from "react";
 import TagRecentPostView from "../ui/aside/TagRecentPostView";
 import TagRenderer from "../ui/TagRenderer";
-
-export const revalidate = 2
 
 
 const sectors = [
