@@ -58,7 +58,7 @@
 
 
 .article table {
-    @apply w-full overflow-x-scroll divide-y divide-gray-200 border rounded-md
+    @apply w-full overflow-x-scroll divide-y divide-gray-200 border rounded-md 
 }
 .article thead {
     @apply bg-gray-100
