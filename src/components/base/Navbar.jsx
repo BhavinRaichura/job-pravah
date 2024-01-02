@@ -6,6 +6,7 @@ import { IoMdClose } from "react-icons/io";
 import { IoMenu } from "react-icons/io5";
 import Logo from "../ui/Logo";
 import { signIn, useSession, signOut, getProviders } from "next-auth/react";
+import Image from "next/image";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -69,10 +70,13 @@ const Navbar = () => {
         {session ? (
           <div className="flex items-center">
             <button onClick={() => setDropdown((e) => !e)}>
-              <img
+              
+              <Image
                 src={session?.user?.image}
                 className="w-10 h-10 rounded-full loading-bg-ani "
-                alt=""
+                alt={`${session?.user?.username} | JobPravah`}
+                width={50}
+                height={50}
                 loading="lazy"
               />
             </button>

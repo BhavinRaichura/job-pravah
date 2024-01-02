@@ -8,7 +8,7 @@ export const revalidate = 2
 
 const Highlights = async () => {
   
-  const recentPost = await getSeachResult({query:"",page:1})
+  const recentPost = await getSeachResult({query:"",page:1, count:6})
 
   // console.log(recentPost)
 

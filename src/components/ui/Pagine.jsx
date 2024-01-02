@@ -31,7 +31,7 @@ const Pagine = ({
         >
           {"<<"} Previous
         </button>
-        <span className="  text-gray-400 border-2 p-2 rounded-lg border-gray-400">
+        <span className="  text-gray-700 bg-gray-100 border-2 p-2 rounded-lg ">
           {" "}
           {currentPage}/{totalPage}{" "}
         </span>

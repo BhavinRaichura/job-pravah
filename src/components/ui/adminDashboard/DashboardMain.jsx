@@ -15,6 +15,7 @@ import { FaListUl } from "react-icons/fa";
 import { useSession, signOut } from "next-auth/react";
 import { PiBooksFill } from "react-icons/pi";
 import { BiLogOut, BiSolidBookAdd } from "react-icons/bi";
+import Image from "next/image";
 
 const DashboardMain = ({ children }) => {
   const [open, setOpne] = useState(0);
@@ -61,9 +62,12 @@ const DashboardMain = ({ children }) => {
               className={`px-2 items-center py-2 w-full  mb-8 flex gap-5 h-20 text-lg border-b overflow-hidden capitalize`}
             >
               {" "}
-              <img
+              <Image
                 src={session?.user?.image}
                 className="w-10 h-10 rounded-full"
+                width={50}
+                height={50}
+                alt={`${session?.user?.username} | JobPravah`}
               />{" "}
               <span className={` ml-2 w-full ${!open ? " hidden " : "  "}`}>
                 {session?.user?.name}{" "}
