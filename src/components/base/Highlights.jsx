@@ -1,7 +1,10 @@
-"use server"
+
 import React from 'react'
 import PosterUISmall from '../ui/PosterUISmall'
 import { getSeachResult } from '@/app/(home)/serverAction'
+
+
+export const revalidate = 2
 
 const Highlights = async () => {
   

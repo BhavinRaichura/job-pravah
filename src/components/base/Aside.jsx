@@ -38,32 +38,28 @@ const qualifications = [
 const Aside = () => {
   return (
     <div className="px-10 py-10 max-md:px-5">
-      <div className="mt-10 bg-gray-100 p-4 rounded-lg">
-      <h1 className=" text-base font-semibold group-hover:text-gray-950 text-gray-700 border-b border-gray-300 p-2">
-        Breaking
-      </h1>
-      </div>
+      
       <TagRecentPostView tag={"Job"} />
       <TagRecentPostView tag={"GovernmentJob"} />
       <TagRecentPostView tag={"ITJob"} />
       <TagRecentPostView tag={"AdmitCard"} />
 
-      <div className="mt-10 bg-gray-100 p-4 rounded-lg">
+      <div className="mt-10  p-4 rounded-lg">
       <h1 className=" text-base font-semibold group-hover:text-gray-950 text-gray-700 border-b border-gray-300 p-2">
           Search By Sector
         </h1>
-        <div className=" p-2 flex flex-wrap gap-1">
+        <div className=" p-2 flex flex-wrap gap-2">
           {sectors.map((data, key) => (
             <TagRenderer tag={data} key={key}/>
           ))}
         </div>
       </div>
 
-      <div className="mt-10 bg-gray-100 p-4 rounded-lg">
+      <div className="mt-10  p-4 rounded-lg">
         <h1 className=" text-base font-semibold group-hover:text-gray-950 text-gray-700 border-b border-gray-300 p-2">
           Search By Qualifications
         </h1>
-        <div className=" p-2 flex flex-wrap gap-1">
+        <div className=" p-2 flex flex-wrap gap-2">
           {qualifications.map((data, key) => (
             <TagRenderer tag={data} key={key}/>
           ))}
@@ -74,3 +70,7 @@ const Aside = () => {
 };
 
 export default Aside;
+
+
+
+
