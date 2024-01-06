@@ -1,8 +1,8 @@
 .article {
-    @apply text-gray-900 selection:bg-teal-300 
+    @apply text-gray-900 selection:bg-teal-300 text-lg max-md:text-base 
 }
 .article  p {
-    @apply  my-5 text-gray-800 text-justify max-md:text-base font-normal
+    @apply  my-5 text-gray-800  font-extralight leading-7
     
 }
 .article blockquote {
@@ -31,15 +31,15 @@
 }
 
 .article ul{
-    @apply list-disc text-gray-800 leading-loose pl-5
+    @apply list-disc text-gray-800  pl-5
 }
 
 .article ol{
-    @apply list-decimal  text-gray-800 leading-loose pl-5
+    @apply list-decimal  text-gray-800  pl-5
 }
 
 .article li{
-    @apply px-2  py-1
+    @apply px-2  py-1 leading-7
 }
 .article a {
     @apply  text-blue-700 my-5 hover:text-blue-600 hover:underline font-medium  bg-sky-50 py-0.5 px-2 rounded-full selection:underline
@@ -64,14 +64,14 @@
     @apply bg-gray-100
 }
 .article th{
-    @apply px-6 py-3 text-sm font-medium tracking-wider text-left text-gray-800 uppercase
+    @apply px-6 py-3 text-base font-medium tracking-wider text-left text-gray-800 uppercase
 }
 
 .article tr{
     @apply hover:bg-gray-50 hover:shadow-md
 }
 .article td {
-    @apply px-6 py-4 text-sm text-gray-700 whitespace-nowrap font-normal
+    @apply px-6 py-4 text-base text-gray-700 whitespace-nowrap font-normal
 }
 .article tbody {
     @apply bg-white divide-y divide-gray-200
