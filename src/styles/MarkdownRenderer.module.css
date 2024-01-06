@@ -58,23 +58,23 @@
 
 
 .article table {
-    @apply w-full overflow-x-scroll divide-y divide-gray-200 border rounded-md 
+    @apply w-full overflow-x-scroll  divide-gray-200 divide-y block
 }
 .article thead {
-    @apply bg-gray-100
+    @apply bg-gray-200 border
 }
 .article th{
     @apply px-6 py-3 text-base font-medium tracking-wider text-left text-gray-800 uppercase
 }
 
 .article tr{
-    @apply hover:bg-gray-50 hover:shadow-md
+    @apply hover:bg-gray-50 hover:shadow-md border-b
 }
 .article td {
     @apply px-6 py-4 text-base text-gray-700 whitespace-nowrap font-normal
 }
 .article tbody {
-    @apply bg-white divide-y divide-gray-200
+    @apply bg-white divide-gray-200 border
 }
 .article td strong {
     @apply font-extrabold text-gray-950
