@@ -17,7 +17,7 @@ export async function createArticle({slug, title, description, tags, content, im
       revalidatePath(revalidationPaths.HOME)
       revalidatePath(revalidationPaths.ADMIN_POST)
       
-      return {success: true,  message: `Post Successfully added to database `, data: { post: post.title}}
+      return {success: true,  message: `Post Successfully added to database `, data: { title: post.title, slug: post.slug, createdAt: post.createdAt}}
     } catch (error) {
       return {success:false, error: error.message, data:{}}
     }

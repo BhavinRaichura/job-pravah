@@ -60,7 +60,7 @@ async function updateArticle({
       return {success:false, error: "post not found", data:{}}
     }
     revalidatePath(`/blog/${createdAt}/${slug}`)
-    return {success:true, message:"submited successfully", data:{port: post.title}}
+    return {success:true, message:"submited successfully", data:{ title: post.title, slug: post.slug, createdAt: post.createdAt}}
   } catch (e) {
     return {success:false, error: error.message, data:{}}
   }

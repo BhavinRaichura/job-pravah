@@ -8,6 +8,7 @@ import Suggetions from "./component";
 import { notFound } from "next/navigation";
 import DateFormateElement from "@/components/ui/DateFormateElement";
 import TagRenderer from "@/components/ui/TagRenderer";
+import SocialButtons from "@/components/ui/SocialButtons";
 
 export const revalidate = 3600
 
@@ -23,12 +24,13 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
+  try {
   const response = await getArticleMetadata(params.slug[0], params.slug[1]);
   // console.log("params slug: ", params);
   if (!response) {
     //throw new Error(`No article found with the slug ${params.slug}`);
-    throw new Error("404: URL Not Found");
-    notFound();
+    // throw new Error("404: URL Not Found");
+    return notFound();
   }
   const pageData = await response.json();
   // Returning an object here will make it available in `pageProps`
@@ -66,11 +68,18 @@ export async function generateMetadata({ params }) {
       creator: pageData.description
     },
   };
+  }catch (error){
+    console.log(error)
+    return notFound()
+  }
 }
 
 const Articles = async ({ params }) => {
+  if(params.slug.length!==2) return notFound()
+
   const response = await getArticle(params.slug[0], params.slug[1]);
-  if (response.status === 500) throw new Error("cannot find article");
+
+  if (response.status === 500) return notFound();
 
   const { title, tags, content, updatedAt } = await response.json();
 
@@ -86,6 +95,15 @@ const Articles = async ({ params }) => {
       </div>
 
       <MarkdownRenderer content={content} />
+
+      <div className="mt-10  rounded-lg">
+        <h1 className=" text-base font-semibold group-hover:text-gray-950 text-gray-700 border-b border-gray-300 p-2">
+        Your Fast-Track to Updates: Join Our Social Media Group Today!
+          </h1>
+          <div className=" p-4 w-fit">
+            <SocialButtons />
+          </div>
+      </div>
 
       <div className="py-2 mt-14 flex flex-wrap gap-2 items-center text-lg">
         {
