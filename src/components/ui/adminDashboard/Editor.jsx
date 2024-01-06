@@ -1,10 +1,11 @@
 "use client";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { IoMdAddCircle } from "react-icons/io";
 import { IoIosRemoveCircle } from "react-icons/io";
 import styles from "@/styles/NewForm.module.css";
 import { states } from "@/utils/stateList";
+import revalidationPaths from "@/revalidation/paths";
 
 const Editor = ({ formName, formSubmitHandler, ...props }) => {
   const router = useRouter();
@@ -17,7 +18,7 @@ const Editor = ({ formName, formSubmitHandler, ...props }) => {
   const [image, setImage] = useState(props.image || "");
   const [state, setState] = useState(props.state || "");
   const [lastdate, setLastdate] = useState(props.lastDate || "");
-  
+
   const [formProcess, setFormProcess] = useState(false);
 
   const handleTags = (e) => {
@@ -46,16 +47,16 @@ const Editor = ({ formName, formSubmitHandler, ...props }) => {
         content,
         createdAt: props.createdAt,
         lastDate: lastdate,
-        state: state
+        state: state,
       });
 
-      if (!response.success) {
+      if (response.success===false) {
         throw new Error("form not submited: ", response.error);
+      } else {
+        console.log(response);
+        alert("Successfully submitted");
+        router.replace(`${revalidationPaths.ARTICLE}/${response?.data?.createdAt}/${response?.data?.slug}`);
       }
-      console.log(response);
-      alert("Successfully submitted");
-
-      router.replace("/admin");
     } catch (error) {
       alert("Error: " + error.message);
       throw new Error("form not submited: ", error.message);
@@ -63,8 +64,6 @@ const Editor = ({ formName, formSubmitHandler, ...props }) => {
       setFormProcess(false);
     }
   };
-
-
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
@@ -100,7 +99,6 @@ const Editor = ({ formName, formSubmitHandler, ...props }) => {
             className="w-full outline-none  p-2 border border-lime-100 focus:border-lime-500 rounded-md hover:border-lime-500"
             onChange={(e) => {
               setDescription(e.target.value);
-             
             }}
             value={description}
             placeholder="description"
@@ -230,7 +228,10 @@ const Editor = ({ formName, formSubmitHandler, ...props }) => {
             disabled={formProcess ? true : false}
           />
         </div>
+
+        
       </div>
+
     </form>
   );
 };

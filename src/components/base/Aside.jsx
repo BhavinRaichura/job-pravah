@@ -2,6 +2,7 @@
 import React from "react";
 import TagRecentPostView from "../ui/aside/TagRecentPostView";
 import TagRenderer from "../ui/TagRenderer";
+import SocialButtons from "../ui/SocialButtons";
 
 
 const sectors = [
@@ -40,6 +41,14 @@ const Aside = () => {
     <div className="px-10 py-10 max-md:px-5">
       
       <TagRecentPostView tag={"Job"} />
+      <div className="mt-10   p-4 rounded-lg">
+        <h1 className=" text-base font-semibold group-hover:text-gray-950 text-gray-700 border-b border-gray-300 p-2">
+        Follow Now!
+          </h1>
+          <div className=" p-4 w-fit">
+            <SocialButtons />
+          </div>
+      </div>
       <TagRecentPostView tag={"GovernmentJob"} />
       <TagRecentPostView tag={"ITJob"} />
       <TagRecentPostView tag={"AdmitCard"} />

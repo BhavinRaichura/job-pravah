@@ -1,7 +1,5 @@
-import { IoLogoWhatsapp } from "react-icons/io";
-import Logo from "../ui/Logo";
-import { FaTelegram } from "react-icons/fa";
-import { RiInstagramFill } from "react-icons/ri";
+import Logo from "@/components/ui/Logo";
+import SocialButtons from "@/components/ui/SocialButtons";
 
 const Footer = () => {
   return (
@@ -14,11 +12,7 @@ const Footer = () => {
 
           <div className="mx-auto rounded-lg font-zinc-950 mt-5 text-zinc-400 md:mt-12 md:max-w-lg text-center lg:text-lg">
          
-            <div className="flex gap-5 justify-center">
-              <IoLogoWhatsapp    className=" hover:scale-110 transition-all w-10 h-10 cursor-pointer  text-gray-300 hover:text-white active:text-gray-200"/>
-              <FaTelegram        className=" hover:scale-110 transition-all w-10 h-10 cursor-pointer  text-gray-300 hover:text-white active:text-gray-200"/>
-              <RiInstagramFill   className=" hover:scale-110 transition-all w-10 h-10 cursor-pointer  text-gray-300 hover:text-white active:text-gray-200"/>
-            </div>
+            <SocialButtons />
           </div>
         </div>
       </section>
