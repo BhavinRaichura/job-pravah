@@ -38,7 +38,7 @@ const qualifications = [
 
 const Aside = () => {
   return (
-    <div className="px-2 max-lg:px-10 py-10 mt-20 ">
+    <div className="px-2 max-lg:px-5 py-10 mt-20 ">
       
       <TagRecentPostView tag={"Job"} />
       <div className="mt-10   py-4 rounded-lg">
