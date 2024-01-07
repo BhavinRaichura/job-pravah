@@ -42,25 +42,25 @@ const Navbar = () => {
       <div className=" w-32">
         <Logo />
       </div>
-      <div className="flex items-center">
+      <div className="flex items-center ">
         <div
-          className={`flex gap-5 px-5 z-50 max-md:pt-8  backdrop-blur-2xl max-md:flex-col max-md:block max-md:fixed top-16 max-md:w-full max-md:left-0 max-md:h-full max-md:px-5 ${
+          className={`flex gap-2 px-5 z-50 max-md:pt-8   backdrop-blur-2xl max-md:flex-col max-md:block max-md:fixed top-16 max-md:w-full max-md:left-0 max-md:h-full max-md:px-5 ${
             open ? "  " : " max-md:hidden "
           }`}
         >
           {/* urls */}
-          <Link href={"/"} className={` border-b-2 border-transparent transition-all ${pathname==='/' ? "  border-gray-900 text-gray-900 " : " text-gray-500 hover:text-gray-700 hover:border-b-2 hover:border-gray-400 "} `} onClick={()=>{ setDropdown(0); setOpen(0)}}>
-            <li className={` list-none text-base font-bold p-2  rounded-md transition-all max-md:text-lg`}>
+          <Link href={"/"} className={` md:hover:bg-gray-100 hover:underline rounded-full py-2 px-4   transition-all ${pathname==='/' ? "  border-gray-900 text-gray-900 underline " : " text-gray-500   "} `} onClick={()=>{ setDropdown(0); setOpen(0)}}>
+            <li className={` list-none text-base font-bold   rounded-md transition-all max-md:text-lg`}>
               Jobs
             </li>
           </Link>
-          <Link href={"/exams"} className={` border-b-2 border-transparent transition-all ${pathname==='/exams' ? "  border-gray-900 text-gray-900 " : " text-gray-500 hover:text-gray-700 hover:border-b-2 hover:border-gray-400 "} `} onClick={()=>{ setDropdown(0); setOpen(0)}}>
-            <li className={` list-none text-base font-bold p-2  rounded-md transition-all max-md:text-lg`}>
+          <Link href={"/exams"} className={` md:hover:bg-gray-100  hover:underline rounded-full py-2 px-4  transition-all ${pathname==='/exams' ? "  border-gray-900 text-gray-900 underline" : " text-gray-500  "} `} onClick={()=>{ setDropdown(0); setOpen(0)}}>
+            <li className={` list-none text-base font-bold  rounded-md transition-all max-md:text-lg`}>
               Exams
             </li>
           </Link>
-          <Link href={"/download"} className={` border-b-2 border-transparent transition-all ${pathname==='/download' ? "  border-gray-900 text-gray-900 " : " text-gray-500 hover:text-gray-700 hover:border-b-2 hover:border-gray-400 "} `} onClick={()=>{ setDropdown(0); setOpen(0)}}>
-            <li className={` list-none text-base font-bold p-2  rounded-md transition-all max-md:text-lg`}>
+          <Link href={"/download"} className={` md:hover:bg-gray-100  hover:underline rounded-full py-2 px-4 transition-all ${pathname==='/download' ? "  border-gray-900 text-gray-900 underline " : " text-gray-500  "} `} onClick={()=>{ setDropdown(0); setOpen(0)}}>
+            <li className={` list-none text-base font-bold   rounded-md transition-all max-md:text-lg`}>
               Download
             </li>
           </Link>

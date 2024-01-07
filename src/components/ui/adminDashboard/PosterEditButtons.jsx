@@ -3,6 +3,7 @@ import { FaEdit, FaExternalLinkAlt } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import revalidationPaths from "@/revalidation/paths";
 
 function PosterEditButtons({slug, createdAt, deletePostsHandler}){
     const router = useRouter()
@@ -12,7 +13,7 @@ function PosterEditButtons({slug, createdAt, deletePostsHandler}){
         <Link href={`/admin/articles/edit/${createdAt}/${slug}`} >
             <FaEdit className="w-4 h-4 cursor-pointer text-gray-500 transition-all hover:scale-110 hover:text-gray-900"/>
         </Link>
-        <Link href={`/blog/${createdAt}/${slug}`} >
+        <Link href={`${revalidationPaths.ARTICLE}/${createdAt}/${slug}`} >
             <FaExternalLinkAlt className="w-4 h-4 cursor-pointer text-gray-500 transition-all hover:scale-110 hover:text-gray-900"/>
         </Link>
     </div>

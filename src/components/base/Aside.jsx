@@ -38,10 +38,10 @@ const qualifications = [
 
 const Aside = () => {
   return (
-    <div className="px-10 py-10 max-md:px-5">
+    <div className="px-2 max-lg:px-10 py-10 mt-20 ">
       
       <TagRecentPostView tag={"Job"} />
-      <div className="mt-10   p-4 rounded-lg">
+      <div className="mt-10   py-4 rounded-lg">
         <h1 className=" text-base font-semibold group-hover:text-gray-950 text-gray-700 border-b border-gray-300 p-2">
         Follow Now!
           </h1>
@@ -53,7 +53,7 @@ const Aside = () => {
       <TagRecentPostView tag={"ITJob"} />
       <TagRecentPostView tag={"AdmitCard"} />
 
-      <div className="mt-10  p-4 rounded-lg">
+      <div className="mt-10  py-4 rounded-lg">
       <h1 className=" text-base font-semibold group-hover:text-gray-950 text-gray-700 border-b border-gray-300 p-2">
           Search By Sector
         </h1>
@@ -64,7 +64,7 @@ const Aside = () => {
         </div>
       </div>
 
-      <div className="mt-10  p-4 rounded-lg">
+      <div className="mt-10  py-4 rounded-lg">
         <h1 className=" text-base font-semibold group-hover:text-gray-950 text-gray-700 border-b border-gray-300 p-2">
           Search By Qualifications
         </h1>

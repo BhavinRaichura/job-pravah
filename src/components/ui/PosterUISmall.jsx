@@ -1,6 +1,7 @@
 import Link from "next/link";
 import DateFormateElement from "./DateFormateElement";
 import Image from "next/image";
+import revalidationPaths from "@/revalidation/paths";
 
 const PosterUISmall = ({ image, title, updatedAt, slug, createdAt }) => {
   return (
@@ -23,7 +24,7 @@ const PosterUISmall = ({ image, title, updatedAt, slug, createdAt }) => {
           {" "}
           <DateFormateElement date={updatedAt} />{" "}
         </p>
-        <Link href={`/blog/${createdAt}/${slug}`}>
+        <Link href={`${revalidationPaths.ARTICLE}/${createdAt}/${slug}`}>
           <p className="pb-2 block  text-sm  font-medium leading-snug tracking-normal  antialiased cursor-pointer text-ellipsis overflow-hidden h-16 w-full  line-clamp-2 uppercase">
             {" "}
             <span className="line-clamp-3">{title}</span>
