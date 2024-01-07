@@ -1,5 +1,5 @@
 const revalidationPaths = {
-    ARTICLE: "/blog",
+    ARTICLE: "",
     DOWNLOAD: "/download",
     HOME: "/",
     NOTES: '/notes',
