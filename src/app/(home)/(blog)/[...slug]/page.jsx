@@ -13,12 +13,11 @@ import SocialButtons from "@/components/ui/SocialButtons";
 export const revalidate = 3600
 
 export async function generateStaticParams() {
-  // Get all article slugs
-  const articles = await getAllArticlesSlug();
-  if (!articles) notFound(); // Not found error if no articles
+  
+  const res = await getAllArticlesSlug();
+  if (!res.success) notFound(); 
 
-  // Create array of objects for each article
-  return articles.map((article) => {
+  return res?.data?.map((article) => {
     return { params: { slug: [article.createdAt, article.slug] } };
   });
 }
@@ -26,13 +25,13 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   try {
   const response = await getArticleMetadata(params.slug[0], params.slug[1]);
-  // console.log("params slug: ", params);
-  if (!response) {
-    //throw new Error(`No article found with the slug ${params.slug}`);
-    // throw new Error("404: URL Not Found");
+  
+  if (!response.success) {
+    
     return notFound();
   }
-  const pageData = await response.json();
+
+  const pageData = await response?.data;
   // Returning an object here will make it available in `pageProps`
   return {
     title: pageData.title,
@@ -79,9 +78,9 @@ const Articles = async ({ params }) => {
 
   const response = await getArticle(params.slug[0], params.slug[1]);
 
-  if (response.status === 500) return notFound();
+  if (!response.success) return notFound();
 
-  const { title, tags, content, updatedAt } = await response.json();
+  const { title, tags, content, updatedAt } = await response?.data;
 
   return (
     <div className="p-10 max-sm:p-5">

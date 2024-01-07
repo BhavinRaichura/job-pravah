@@ -2,8 +2,10 @@ import { getSuggetion } from "./serverActions";
 import Link from "next/link";
 import DateFormateElement from "@/components/ui/DateFormateElement";
 import Image from "next/image";
+import revalidationPaths from "@/revalidation/paths";
 
-export const revalidate = 200;
+
+export const revalidate = 3600*24;
 
 const Suggetions = async ({ tags, slug }) => {
   const suggetions = await getSuggetion({ tags, slug });
@@ -17,7 +19,7 @@ const Suggetions = async ({ tags, slug }) => {
       </div>
       <div className="flex flex-wrap gap-10 justify-stretch">
         {suggetions &&
-          suggetions?.map((blog, key) => (
+          suggetions?.data?.map((post, key) => (
             <div
               key={key}
               className=" w-60 h-full 
@@ -27,18 +29,18 @@ const Suggetions = async ({ tags, slug }) => {
                 <Image
                   width={"180"}
                   height={"250"}
-                  src={blog?.image ? blog?.image : "/job.jpeg"}
+                  src={post?.image ? post?.image : "/job.jpeg"}
                   alt=""
                   className="w-full h-32 rounded-md max-sm:h-40 loading-bg-ani filter bg-cover bg-center"
                 />
                 <Link
-                  href={`/blog/${blog.createdAt}/${blog.slug}`}
+                  href={`${revalidationPaths.ARTICLE}/${post.createdAt}/${post.slug}`}
                   className="hover:text-black text-gray-700 font-semibold"
                 >
                   <p className=" text-gray-600 pt-2 font-medium text-xs">
-                    <DateFormateElement date={blog.updatedAt} />
+                    <DateFormateElement date={post.updatedAt} />
                   </p>
-                  <p className=" py-2 text-base line-clamp-3 h-20">{blog.title}</p>
+                  <p className=" py-2 text-base line-clamp-3 h-20">{post.title}</p>
                 </Link>
               </div>
             </div>

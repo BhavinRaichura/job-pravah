@@ -2,6 +2,8 @@ import PosterEditButtons from "@/components/ui/adminDashboard/PosterEditButtons"
 import { deleteArticle, getAllArticles } from "./serverActions";
 
 import DateFormateElement from "@/components/ui/DateFormateElement";
+import Link from "next/link";
+import revalidationPaths from "@/revalidation/paths";
 
 const PostsTable = async () => {
     const artices = await getAllArticles();
@@ -61,7 +63,9 @@ const PostsTable = async () => {
                             
                             <div className="ml-4">
                               <div className="text-sm font-medium text-gray-800 hover:text-gray-900 max-w-xs overflow-hidden line-clamp-1">
-                                {article.title}
+                                <Link href={`${revalidationPaths.ARTICLE}/${article.createdAt}/${article.slug}`} className="hover:text-blue-700 hover:underline ">
+                                  {article.title}
+                                </Link>
                               </div>
                               
                             </div>

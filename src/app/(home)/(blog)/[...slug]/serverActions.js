@@ -6,12 +6,12 @@ import { connectToDB } from "@/utils/db";
 export async function getAllArticlesSlug() {
   try {
     await connectToDB();
-    const slug = await Post.find({}, { slug: 1, createdAt: 1 });
+    const slug = await Post.find({}, { slug: 1, createdAt: 1, updatedAt: 1 });
    // console.log(slug);
-    return slug;
+    return { success:true, data:slug};
   } catch (error) {
     console.log(error);
-    return new Response(JSON.stringify({ message: error }), { status: 200 });
+    return {success:false, error: error.message, data:{}};
   }
 }
 
@@ -26,10 +26,11 @@ export async function getArticleMetadata(createdAt, slug) {
    // console.log("metadata: ", slug);
     if (!metadata[0]) throw new Error("No article's metadata found");
     metadata.image = metadata.image || ""
-    return new Response(JSON.stringify(metadata[0]), { status: 200 });
+
+    return {success: true, data: metadata[0]}
   } catch (error) {
     console.log(error);
-    return new Response(JSON.stringify({ message: error }), { status: 200 });
+    return {success: false, error: error.message, data:[] }
   }
 }
 
@@ -41,11 +42,11 @@ export async function getArticle(createdAt, slug) {
       { slug: slug, createdAt: createdAt },
       { title: 1, tags: 1, content: 1, updatedAt: 1 }
     );
-   //// console.log(article);
+   
     if (!article[0]) throw new Error("No article found");
-    return new Response(JSON.stringify(article[0]), { status: 200 });
+    return {success: true, data: article[0]}
   } catch (error) {
-    return new Response(JSON.stringify({ message: error }), { status: 500 });
+    return {success: false, error:error.message, data: {}}
   }
 }
 
@@ -82,9 +83,9 @@ export async function getSuggetion(targetPoster) {
       },
     ]);
     
-    return suggetions;
+    return { success: true, name:"suggestion", data: suggetions};
   } catch (e) {
-    throw new Error(e);
+    throw { success: false, error:e.message, data: {}};
     
   }
 }
