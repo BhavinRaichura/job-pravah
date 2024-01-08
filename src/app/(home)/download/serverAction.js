@@ -7,8 +7,8 @@ export async function getBooks(){
     try{
         await connectToDB()
         const books = await Books.find({})
-        return books
+        return {success: true, data: {books}}
     } catch (e) {
-        return {status:500, error: e.message}
+        return {success: false, error: e.message, data:{}}
     }
 }

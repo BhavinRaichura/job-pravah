@@ -1,6 +1,7 @@
 import Heading from '@/components/ui/Heading'
 import React from 'react'
 import { getBooks } from './serverAction'
+import { notFound } from 'next/navigation'
 
 // revalidate everyday
 export const revalidate = 86400
@@ -12,14 +13,14 @@ export const metadata = {
 
 
 const DownloadPage = async () => {
-  const books = await getBooks()
-// console.log(books)
+  const res = await getBooks()
+  if(!res.success) return notFound()
   return (
     
     <div className='p-5'>
       <Heading heading={"Download"} />
       <div className='flex gap-5 flex-col flex-wrap'>
-        {books && books.map((book, index)=>(
+        {res?.data?.books && res?.data?.books?.map((book, index)=>(
           <div key={index} className='p-5 mt-5 border-b   '>
             <p className='p-1 text-lg font-semibold'>
               {book?.title}
