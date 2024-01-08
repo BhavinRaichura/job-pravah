@@ -29,8 +29,8 @@ const Suggetions = async ({ tags, slug }) => {
                 <Image
                   width={"180"}
                   height={"250"}
-                  src={post?.image ? post?.image : "/job.jpeg"}
-                  alt=""
+                  src={post?.image ? post?.image : "/job.png"}
+                  alt=" "
                   className="w-full h-32 rounded-md max-sm:h-40 loading-bg-ani filter bg-cover bg-center"
                 />
                 <Link

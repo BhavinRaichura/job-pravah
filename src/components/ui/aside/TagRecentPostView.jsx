@@ -26,7 +26,7 @@ const TagRecentView = async ({ tag }) => {
               <li key={key} className=" p-1 list-none ">
               <Link
                   href={`${revalidationPaths.ARTICLE}/${post.createdAt}/${post.slug}`}
-                  className=" text-sm uppercase font-light text-blue-700 hover:underline  hover:translate-x-2 transition-all line-clamp-2"
+                  className=" text-base uppercase font-light text-blue-700 hover:underline  hover:translate-x-2 transition-all  line-clamp-2"
                   title={post.title}
                   key={key}
                 >
@@ -38,7 +38,7 @@ const TagRecentView = async ({ tag }) => {
           })}
       </div>
       <p className={`p-2 ${response?.data?.posts.length ===4 ? " " : " hidden" }`}>
-        <Link href={`/?q=${tag}`} className=" hover:text-blue-700 text-sm px-2 text-gray-700  font-light  ">SEE MORE...</Link>
+        <Link href={`/?q=${tag}`} className=" hover:underline text-sm px-2 text-blue-700  font-light  ">SEE MORE...</Link>
       </p>
     </div>
   );

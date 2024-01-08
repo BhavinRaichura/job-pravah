@@ -6,7 +6,8 @@ import { getBooks } from './serverAction'
 export const revalidate = 86400
 
 export const metadata = {
-  title : "Download" 
+  title : "Download",
+  description: "Get books and courses to prepare for competitive exams, entrance exams, interviews, government jobs, engineering and IT jobs and placements "
 }
 
 

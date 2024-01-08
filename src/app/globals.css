@@ -17,7 +17,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  font-family:"Jost";/*"Josefin Sans";/*"Montserrat ";/*"Roboto Slab ";/*"Lato ";/*"Afacad";/*"Karla";/*"Raleway" /* "roboto" "Playfair Display"*/
+  font-family:"Jost";/**"Josefin Sans";/*"Montserrat ";/*"Roboto Slab ";/*"Lato ";/*"Afacad";/*"Karla";/*"Raleway" /* "roboto" "Playfair Display"*/
   @apply text-gray-800 
   /*background: linear-gradient(
       to bottom,

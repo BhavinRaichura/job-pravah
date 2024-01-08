@@ -21,7 +21,7 @@ export async function getArticleMetadata(createdAt, slug) {
 
     const metadata = await Post.find(
       { slug:slug, createdAt: createdAt  },
-      { title: 1, tags: 1, description: 1, image:1 }
+      { title: 1, tags: 1, description: 1, image:1, tags: 1 }
     );
    // console.log("metadata: ", slug);
     if (!metadata[0]) throw new Error("No article's metadata found");
@@ -50,7 +50,7 @@ export async function getArticle(createdAt, slug) {
   }
 }
 
-export async function getSuggetion(targetPoster) {
+export async function getSuggetion({ tags, slug, createdAt }) {
   try {
     await connectToDB();
     
@@ -65,14 +65,15 @@ export async function getSuggetion(targetPoster) {
           createdAt:1,
           matchedTags: {
             $size: {
-              $setIntersection: ["$tags", targetPoster.tags],
+              $setIntersection: ["$tags", tags],
             },
           },
         },
       },
       {
         $match: {
-          slug: { $ne: targetPoster.slug }, // Exclude the target poster itself
+          slug: { $ne: slug },
+          createdAt: { $ne: createdAt } // Exclude the target poster itself
         },
       },
       {
