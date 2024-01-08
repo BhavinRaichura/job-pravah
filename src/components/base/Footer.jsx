@@ -12,7 +12,7 @@ const Footer = () => {
 
           <div className="mx-auto rounded-lg font-zinc-950 mt-5 text-zinc-400 md:mt-12 md:max-w-lg text-center lg:text-lg">
          
-            <SocialButtons />
+            <SocialButtons noText={true} />
           </div>
         </div>
       </section>
