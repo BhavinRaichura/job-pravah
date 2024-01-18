@@ -2,6 +2,7 @@ import React from 'react'
 import '@/app/globals.css'
 import Provider from '@/components/base/Provider'
 import './favicon.ico'
+import Script from 'next/script'
 
 export const metadata = {
   title: {
@@ -19,16 +20,16 @@ const Layout = ({children}) => {
         </head>
       
         {/* Google analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-5EL2KHZCVK"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){
-            dataLayer.push(arguments)
-          }
-          gtag('js', new Date());
         
-          gtag('config', 'G-5EL2KHZCVK');
-        </script>
+        <Script id='1' async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS_ID}`}></Script>
+          <Script id='2'>
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments)}  
+              gtag("js", new Date());
+              gtag('config', ${process.env.GOOGLE_ANALYTICS_ID});
+            `}
+          </Script>
 
 
         <body>
